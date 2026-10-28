@@ -1,0 +1,17 @@
+{
+  "title": "Code and results for: Rethinking Parameter Invariance in Cognitive Modeling",
+  "description": "R code, saved simulation results, and figures accompanying the paper by Yu and Robinson. See README.md for contents and reproduction instructions.",
+  "upload_type": "software",
+  "license": "mit",
+  "version": "1.0.0",
+  "creators": [
+    {"name": "Yu, Kenny", "affiliation": "KU Leuven", "orcid": "0000-0002-0665-9354"},
+    {"name": "Robinson, Maria M.", "affiliation": "University of Warwick", "orcid": "0000-0002-6978-8575"}
+  ],
+  "keywords": [
+    "parameter invariance",
+    "parameter transfer",
+    "cross-task generalization",
+    "cognitive modeling"
+  ]
+}
