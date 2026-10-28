@@ -1,6 +1,6 @@
 {
-  "title": "Code and results for: Rethinking Parameter Invariance in Cognitive Modeling",
-  "description": "R code, saved simulation results, and figures accompanying the paper by Yu and Robinson. See README.md for contents and reproduction instructions.",
+  "title": "Code and results for: Rethinking parameter invariance in cognitive modeling",
+  "description": "R simulation and analysis code, saved results, and figures accompanying the paper by Yu and Robinson. See README.md for contents and reproduction instructions.",
   "upload_type": "software",
   "license": "mit",
   "version": "1.0.0",
