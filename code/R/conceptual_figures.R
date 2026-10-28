@@ -139,12 +139,12 @@ make_figure2 <- function() {
       colour = charcoal, linewidth = 0.4, linetype = "dotted"
     ) +
     geom_point(data = minima, size = 2.7, show.legend = FALSE) +
-    annotate("text", theta_A, -0.13, label = expression(theta[A]^"*"),
+    annotate("text", theta_A, -0.20, label = expression(theta[A]^"*"),
              colour = blue, size = 3.2) +
-    annotate("text", theta_joint, -0.13,
+    annotate("text", theta_joint, -0.20,
              label = expression(theta[joint]^"*"),
              colour = charcoal, size = 3.2) +
-    annotate("text", theta_B, -0.13, label = expression(theta[B]^"*"),
+    annotate("text", theta_B, -0.20, label = expression(theta[B]^"*"),
              colour = orange, size = 3.2) +
     annotate("text", 1.66, 1.70, label = expression(L[A]),
              colour = blue, size = 3.1) +
@@ -156,7 +156,7 @@ make_figure2 <- function() {
     scale_linetype_manual(values = curve_types) +
     scale_x_continuous(breaks = NULL) +
     scale_y_continuous(breaks = 0:2) +
-    coord_cartesian(xlim = c(-0.4, 2.4), ylim = c(-0.2, 2.25)) +
+    coord_cartesian(xlim = c(-0.4, 2.4), ylim = c(-0.3, 2.25)) +
     labs(title = "The joint value is a compromise",
          x = expression(theta), y = "Loss") +
     paper_theme(9) +
@@ -199,17 +199,17 @@ make_figure2 <- function() {
       label = expression(Delta * L[B]^joint == frac(1, 4) * Delta * L[B]^sub),
       colour = charcoal, size = 3.15
     ) +
-    annotate("text", theta_A, -0.13, label = expression(theta[A]^"*"),
+    annotate("text", theta_A, -0.20, label = expression(theta[A]^"*"),
              colour = blue, size = 3.2) +
-    annotate("text", theta_joint, -0.13,
+    annotate("text", theta_joint, -0.20,
              label = expression(theta[joint]^"*"),
              colour = charcoal, size = 3.2) +
-    annotate("text", theta_B, -0.13, label = expression(theta[B]^"*"),
+    annotate("text", theta_B, -0.20, label = expression(theta[B]^"*"),
              colour = orange, size = 3.2) +
     scale_colour_manual(values = evaluation_colours) +
     scale_x_continuous(breaks = NULL) +
     scale_y_continuous(breaks = 0:2) +
-    coord_cartesian(xlim = c(-0.4, 2.4), ylim = c(-0.2, 2.25)) +
+    coord_cartesian(xlim = c(-0.4, 2.4), ylim = c(-0.3, 2.25)) +
     labs(
       title = "Half the distance, one-quarter the loss",
       x = expression(theta),
