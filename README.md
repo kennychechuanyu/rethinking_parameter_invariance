@@ -4,6 +4,8 @@ Code for the paper
 
 > Yu, K., & Robinson, M. M. (2026). *Rethinking parameter invariance in cognitive modeling* [Manuscript submitted for publication]. KU Leuven.
 
+DOI: [10.5281/zenodo.23733805](https://doi.org/10.5281/zenodo.23733805)
+
 The repository contains the code for the formal examples and the simulations in
 the paper, the scripts that draw each figure of the paper and the supplement, and
 the saved results of the simulations. `code/README.md` lists which script

@@ -10,5 +10,7 @@ authors:
     given-names: Maria M.
     orcid: "https://orcid.org/0000-0002-6978-8575"
 version: 1.0.0
+doi: 10.5281/zenodo.23733805
+date-released: 2026-10-28
 license: MIT
 repository-code: "https://github.com/kennychechuanyu/rethinking_parameter_invariance"
