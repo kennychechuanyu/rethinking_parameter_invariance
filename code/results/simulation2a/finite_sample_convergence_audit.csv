@@ -1,0 +1,9 @@
+metric,count,denominator,description,proportion,scaled_boundary_tolerance,minimum_scaled_boundary_distance
+replications_with_any_retry,13,62000,At least one component fit triggered the fixed restart grid,2.0967741935483871e-4,1e-4,0.14933399768974892
+component_fits_converged_after_retry,186000,186000,Final convergence status across the two separate and one joint fit,1,1e-4,0.14933399768974892
+component_fits_not_converged_after_retry,0,186000,Component fits not converged after the fixed retry rule,0,1e-4,0.14933399768974892
+fitting_operations_with_parameter_near_boundary,0,310000,At least one free parameter was within the declared scaled tolerance in any of five fitting operations,0,1e-4,0.14933399768974892
+free_parameters_checked,558000,558000,Nine free parameters were checked in every replication,1,1e-4,0.14933399768974892
+free_parameters_near_optimizer_boundary,0,558000,Free parameters within 0.01% of their bounded optimizer interval,0,1e-4,0.14933399768974892
+replications_with_any_parameter_near_boundary,0,62000,At least one of nine free parameters met the bound flag rule,0,1e-4,0.14933399768974892
+replications_discarded_or_replaced,0,62000,All generated replications were retained,0,1e-4,0.14933399768974892

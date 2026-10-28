@@ -1,0 +1,13 @@
+table_id,row_variable,row_level,column_variable,column_level,count,total,proportion_all,mc95_low,mc95_high,mc_interval,row_proportion,column_proportion
+joint_by_transfer,joint check,fail,transfer check,fail,827,10000,0.0827,0.077460513342715,0.08825998347122893,95% Wilson,0.9975874547647768,0.09711131986848286
+joint_by_transfer,joint check,fail,transfer check,pass,2,10000,2e-4,5.4847779209068104e-5,7.290110935663664e-4,95% Wilson,0.0024125452352231603,0.0013477088948787063
+joint_by_transfer,joint check,pass,transfer check,fail,7689,10000,0.7689,0.7605355701568511,0.777057907932606,95% Wilson,0.8384036637226039,0.9028886801315171
+joint_by_transfer,joint check,pass,transfer check,pass,1482,10000,0.1482,0.14137127897727594,0.1552989122020806,95% Wilson,0.16159633627739614,0.9986522911051213
+calibrated_joint_by_transfer,calibrated joint check,fail,transfer check,fail,8516,10000,0.8516,0.8444972883420685,0.8584326740835662,95% Wilson,0.8516,1
+calibrated_joint_by_transfer,calibrated joint check,fail,transfer check,pass,1484,10000,0.1484,0.14156732591643384,0.1555027116579316,95% Wilson,0.1484,1
+calibrated_joint_by_transfer,calibrated joint check,pass,transfer check,fail,0,10000,0,0,3.8401247776654115e-4,95% Wilson,NA,0
+calibrated_joint_by_transfer,calibrated joint check,pass,transfer check,pass,0,10000,0,0,3.8401247776654115e-4,95% Wilson,NA,0
+aic_by_transfer,AIC model,separate,transfer check,fail,7814,10000,0.7814,0.7731921611176398,0.7893917166598732,95% Wilson,0.9504926407979565,0.9175669328323156
+aic_by_transfer,AIC model,separate,transfer check,pass,407,10000,0.0407,0.037000257242792566,0.04475249661928377,95% Wilson,0.04950735920204355,0.2742587601078167
+aic_by_transfer,AIC model,shared,transfer check,fail,702,10000,0.0702,0.06535580828956841,0.07537428883631969,95% Wilson,0.3946037099494098,0.08243306716768437
+aic_by_transfer,AIC model,shared,transfer check,pass,1077,10000,0.1077,0.10177392475010258,0.11392737143995305,95% Wilson,0.6053962900505903,0.7257412398921833

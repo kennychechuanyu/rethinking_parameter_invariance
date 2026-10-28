@@ -1,0 +1,16 @@
+event_id,description,definition,count,denominator,estimate,mc95_low,mc95_high,mc_interval
+J,Joint predictor passes,J,9171,10000,0.9171,0.9115341648694244,0.9223454919216227,95% Wilson
+J_cal,Joint predictor passes the calibrated threshold,J_cal: R_joint <= epsilon/4,0,10000,0,0,3.8401247776654115e-4,95% Wilson
+S,Bidirectional transfer passes,S,1484,10000,0.1484,0.14156732591643384,0.1555027116579316,95% Wilson
+J_cal_not_equal_S,Calibrated joint and transfer decisions disagree,J_cal != S,1484,10000,0.1484,0.14156732591643384,0.1555027116579316,95% Wilson
+J_cal_and_not_S,Calibrated joint passes and transfer fails,J_cal & !S,0,10000,0,0,3.8401247776654115e-4,95% Wilson
+not_J_cal_and_S,Calibrated joint fails and transfer passes,!J_cal & S,1484,10000,0.1484,0.14156732591643384,0.1555027116579316,95% Wilson
+C,Joint passes and transfer fails,J & !S,7689,10000,0.7689,0.7605355701568511,0.777057907932606,95% Wilson
+M_AIC,AIC selects the shared model,M_AIC,1779,10000,0.1779,0.1705285096492225,0.18551887118895471,95% Wilson
+M_AIC_and_not_S,AIC selects shared and transfer fails,M_AIC & !S,702,10000,0.0702,0.06535580828956841,0.07537428883631969,95% Wilson
+M_AIC_and_J_and_not_S,"AIC selects shared, joint passes, and transfer fails",M_AIC & J & !S,557,10000,0.0557,0.05137314965530505,0.060368083832438274,95% Wilson
+M_AIC_and_not_J_and_not_S,"AIC selects shared, joint fails, and transfer fails",M_AIC & !J & !S,145,10000,0.0145,0.012336501579320817,0.017036374536590494,95% Wilson
+not_M_AIC_and_S,AIC selects separate and transfer passes,!M_AIC & S,407,10000,0.0407,0.037000257242792566,0.04475249661928377,95% Wilson
+AIC_transfer_disagreement,AIC and transfer disagree in either direction,(M_AIC & !S) | (!M_AIC & S),1109,10000,0.1109,0.10489422523732633,0.11720461327287157,95% Wilson
+not_S_given_M_AIC,Transfer fails given AIC selects shared,P(!S | M_AIC),702,1779,0.3946037099494098,0.372141471586545,0.4175201562327746,95% Wilson
+J_given_M_AIC_and_not_S,Joint passes given AIC selects shared and transfer fails,P(J | M_AIC & !S),557,702,0.7934472934472935,0.7619415186563984,0.8217588469780442,95% Wilson

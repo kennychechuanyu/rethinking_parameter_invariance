@@ -1,0 +1,16 @@
+component,version
+R,4.5.2
+Platform,aarch64-apple-darwin20
+Cairo PDF,TRUE
+digest,0.6.39
+dplyr,1.2.0
+ggplot2,4.0.2
+patchwork,1.3.2
+purrr,1.2.1
+readr,2.2.0
+scales,1.4.0
+stringr,1.6.0
+tibble,3.3.1
+tidyr,1.3.2
+RNG,Mersenne-Twister / Inversion / Rejection
+renv.lock SHA-256,17e719a956c2aa685b3921c07daea96a9a117e316a3aec0ca7391a31dac4ba1c

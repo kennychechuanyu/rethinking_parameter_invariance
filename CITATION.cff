@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying manuscript when using these materials."
+title: "Reproducibility materials for Rethinking Parameter Invariance in Cognitive Modeling"
+type: software
+authors:
+  - family-names: Yu
+    given-names: Kenny
+    orcid: "https://orcid.org/0000-0002-0665-9354"
+  - family-names: Robinson
+    given-names: Maria M.
+    orcid: "https://orcid.org/0000-0002-6978-8575"
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/kennychechuanyu/rethinking_parameter_invariance"

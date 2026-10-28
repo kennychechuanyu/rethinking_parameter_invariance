@@ -1,0 +1,32 @@
+check,value,target,tolerance,pass
+aggregated-binomial score equals trial-level score,4.336808689942018e-18,0,1e-14,TRUE
+fractional expected counts reproduce exact KL risk,6.071532165918825e-18,0,1e-14,TRUE
+q equal to p0 gives zero score for every realized count vector,0,0,1e-14,TRUE
+repeated-redraw mean agrees with exact KL risk,9.903654196462101e-6,0,6.473626040696258e-5,TRUE
+repeated-redraw variance agrees with analytic variance,6.841154963606572e-4,0,0.03,TRUE
+retained validation row count matches the declared factorial design,150000,150000,0,TRUE
+every declared factorial cell appears exactly once,1,1,0,TRUE
+unique training-experiment count matches delta by replication,50000,50000,0,TRUE
+training experiments and exact decisions are identical across validation sizes,1,1,0,TRUE
+validation trials per task equal nine times trials per level,1,1,0,TRUE
+retained validation counts form valid nested binomial increments,1,1,0,TRUE
+"joint, substitution, and conflation decisions reproduce their definitions",1,1,0,TRUE
+validation-only plus exact-only counts equal total disagreement,1,1,0,TRUE
+analytic score variance has exact inverse-m scaling,0,0,1e-14,TRUE
+mean score errors are compatible with conditional unbiasedness,2.2945197076909847,0,6,TRUE
+mean squared score error is compatible with mean analytic variance,0.03911003363053611,0,0.12,TRUE
+delta=0.00: retained exact risks reproduce recomputed exact risks,0,0,1e-12,TRUE
+delta=0.00: validation counts form valid nested binomial increments,1,1,0,TRUE
+delta=0.00: all validation scores are finite,1,1,0,TRUE
+delta=0.40: retained exact risks reproduce recomputed exact risks,0,0,1e-12,TRUE
+delta=0.40: validation counts form valid nested binomial increments,1,1,0,TRUE
+delta=0.40: all validation scores are finite,1,1,0,TRUE
+delta=0.50: retained exact risks reproduce recomputed exact risks,0,0,1e-12,TRUE
+delta=0.50: validation counts form valid nested binomial increments,1,1,0,TRUE
+delta=0.50: all validation scores are finite,1,1,0,TRUE
+delta=0.60: retained exact risks reproduce recomputed exact risks,0,0,1e-12,TRUE
+delta=0.60: validation counts form valid nested binomial increments,1,1,0,TRUE
+delta=0.60: all validation scores are finite,1,1,0,TRUE
+delta=0.90: retained exact risks reproduce recomputed exact risks,0,0,1e-12,TRUE
+delta=0.90: validation counts form valid nested binomial increments,1,1,0,TRUE
+delta=0.90: all validation scores are finite,1,1,0,TRUE

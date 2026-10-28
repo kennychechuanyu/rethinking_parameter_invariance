@@ -1,0 +1,6 @@
+delta,replications,component_fits,converged_component_fits,nonconverged_component_fits,convergence_rate,replications_invoking_retry,retry_rate,retained_replications,discarded_replications
+0,10000,30000,30000,0,1,2,2e-4,10000,0
+0.4,10000,30000,30000,0,1,1,1e-4,10000,0
+0.5,10000,30000,30000,0,1,2,2e-4,10000,0
+0.6,10000,30000,30000,0,1,0,0,10000,0
+0.9,10000,30000,30000,0,1,0,0,10000,0

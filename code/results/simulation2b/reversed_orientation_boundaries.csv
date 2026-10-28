@@ -1,0 +1,2 @@
+slope_orientation,boundary_B_to_A,boundary_A_to_B,boundary_joint
+s_A = 2 + delta/2; s_B = 2 - delta/2,0.49917154708840783,0.9912598155776425,1.3835601889541718

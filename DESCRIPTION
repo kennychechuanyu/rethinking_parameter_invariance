@@ -1,0 +1,30 @@
+Package: parameterInvarianceSimulations
+Type: Project
+Title: Reproducibility Code for Rethinking Parameter Invariance in Cognitive Modeling
+Version: 1.0.0
+Authors@R: c(
+    person("Kenny", "Yu", email = "kenny.yu@kuleuven.be",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-0665-9354")),
+    person("Maria M.", "Robinson", role = "aut",
+           comment = c(ORCID = "0000-0002-6978-8575"))
+    )
+Description: Reproduces the formal examples, simulations, checks, and figures
+    reported in the manuscript "Rethinking Parameter Invariance in Cognitive
+    Modeling."
+Depends: R (>= 4.5.0)
+Imports:
+    digest,
+    dplyr,
+    ggplot2,
+    patchwork,
+    purrr,
+    readr,
+    scales,
+    stringr,
+    tibble,
+    tidyr
+Suggests:
+    renv
+License: MIT + file LICENSE
+Encoding: UTF-8

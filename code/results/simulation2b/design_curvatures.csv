@@ -1,0 +1,5 @@
+design,curvature,stimulus_levels,selected_as,reference_slope,reference_location
+moderate,0.05993153157412711,"-2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0",Task A,2,0
+informative,0.06406947065726978,"-1.6, -1.2, -0.8, -0.4, 0.0, 0.4, 0.8, 1.2, 1.6",not selected,2,0
+near_pse,0.027809102868306776,"-0.60, -0.45, -0.30, -0.15, 0.00, 0.15, 0.30, 0.45, 0.60",not selected,2,0
+very_near,0.014210256120513574,"-0.4, -0.3, -0.2, -0.1, 0.0, 0.1, 0.2, 0.3, 0.4",Task B,2,0
