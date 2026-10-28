@@ -8,9 +8,9 @@ DOI: [10.5281/zenodo.23733805](https://doi.org/10.5281/zenodo.23733805)
 
 The repository contains the code for the formal examples and the simulations in
 the paper, the scripts that draw each figure of the paper and the supplement, and
-the saved results of the simulations. `code/README.md` lists which script
-produces which figure and result, and `code/DATA_DICTIONARY.md` describes the
-result files.
+the saved results of the simulations. The supplementary material itself is in
+`supplement.pdf`. `code/README.md` lists which script produces which figure and
+result, and `code/DATA_DICTIONARY.md` describes the result files.
 
 All commands are run from the repository root.
 

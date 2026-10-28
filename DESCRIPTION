@@ -1,7 +1,7 @@
 Package: parameterInvarianceSimulations
 Type: Project
 Title: Reproducibility Code for Rethinking Parameter Invariance in Cognitive Modeling
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: c(
     person("Kenny", "Yu", email = "kenny.yu@kuleuven.be",
            role = c("aut", "cre"),
