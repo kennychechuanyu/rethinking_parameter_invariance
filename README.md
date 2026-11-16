@@ -20,17 +20,17 @@ The analyses were run with R 4.5.2. The first two commands install the recorded
 package versions into a project library; the third rebuilds the figures.
 
 ```sh
-Rscript -e 'install.packages("renv")'
+Rscript -e 'install.packages("renv", repos = "https://cloud.r-project.org")'
 Rscript --vanilla -e 'renv::restore()'
 Rscript --vanilla code/run_all.R
 ```
 
-The last command takes about ten seconds. It reruns Simulation 1 and the
-supplementary checks, draws the other figures from the saved simulation results,
-and compares every saved result with the checksums in `code/results/manifest.csv`.
+The last command takes a little over a minute. It reruns the analyses that are
+quick to run, draws the other figures from the saved simulation results, and
+compares every saved result with the checksums in `code/results/manifest.csv`.
 
 To run Simulations 2A and 2B and the finite-validation analysis again, which takes
-about eight minutes:
+about ten minutes:
 
 ```sh
 Rscript --vanilla code/run_all.R --resimulate-all

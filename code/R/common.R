@@ -69,14 +69,14 @@ replicate_rows <- function(n, simulate_one) {
   do.call(rbind, replicate(n, simulate_one(), simplify = FALSE))
 }
 
-# Theme for the conceptual figures and the supplementary figures.
+# Theme for Figures 1, 2 and 5 and Figures S2 and S3.
 paper_theme <- function(base_size = 9) {
   theme_classic(base_size = base_size, base_family = "Helvetica") +
     theme(
       text = element_text(colour = "black"),
       axis.line = element_line(linewidth = 0.35, colour = "black"),
       axis.ticks = element_line(linewidth = 0.35, colour = "black"),
-      axis.text = element_text(size = base_size - 1, colour = "black"),
+      axis.text = element_text(size = base_size - 0.5, colour = "black"),
       axis.title = element_text(size = base_size),
       plot.title = element_text(size = base_size, face = "plain", hjust = 0,
                                 margin = margin(b = 5)),
@@ -88,7 +88,7 @@ paper_theme <- function(base_size = 9) {
     )
 }
 
-# Theme for the simulation figures (Figures 3 and 5).
+# Theme for the simulation figures (Figures 4 and S1).
 simulation_theme <- function() {
   theme_classic(base_size = 10.5, base_family = "Helvetica") +
     theme(

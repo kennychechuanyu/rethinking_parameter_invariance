@@ -1,4 +1,4 @@
-# Simulation 1 (Figure 3; Supplement S2): Gaussian means with matched
+# Simulation 1 (Figure S1; Supplement S2): Gaussian means with matched
 # precision.
 #
 # Each task mean is estimated from 1,600 observations. The joint estimate
@@ -278,7 +278,7 @@ run_simulation1 <- function() {
   write.csv(audit, data_path("simulation1_diagnostics.csv"), row.names = FALSE)
   write.csv(mc, data_path("simulation1_curves.csv"), row.names = FALSE)
 
-  # Figure 3 ----
+  # Figure S1 ----
 
   # Panel A shows the estimators at delta = 0.30.
   delta_A <- 0.30
@@ -411,7 +411,7 @@ run_simulation1 <- function() {
     ) +
     annotate(
       "text", x = 1.5 * a, y = 34,
-      label = "Joint adequacy\nwithout transfer",
+      label = "Joint adequacy without\nbidirectional transfer",
       colour = "grey40", size = 2.8, lineheight = 0.95
     ) +
     geom_line(aes(linetype = method), linewidth = 1.05) +
@@ -474,7 +474,8 @@ run_simulation1 <- function() {
     plot_layout(heights = c(0.74, 1.26)) +
     plot_annotation(tag_levels = "A")
 
-  save_figure(fig, file.path(figure_dir, "figure3_gaussian_simulation.pdf"),
+  save_figure(fig,
+              file.path(supplement_figure_dir, "figureS1_gaussian_simulation.pdf"),
               height_mm = 118)
 
   invisible(list(curves = mc, audit = audit, figure = fig))

@@ -1,4 +1,4 @@
-# Finite-validation analysis (Figure S2; Supplement S6.1).
+# Finite-validation analysis (Figure S3; Supplement S6.1).
 #
 # New Simulation 2A training experiments are fitted, and each fitted curve is
 # scored both by its exact excess loss and on independent validation trials.
@@ -6,7 +6,7 @@
 # validation score needs the generating probabilities, so it can be computed
 # only in a simulation.
 #
-#   Rscript --vanilla code/R/finite_validation.R               Figure S2 from saved results
+#   Rscript --vanilla code/R/finite_validation.R               Figure S3 from saved results
 #   Rscript --vanilla code/R/finite_validation.R --resimulate  rerun the simulation (a few minutes)
 
 source("code/R/common.R")
@@ -1122,12 +1122,12 @@ write_outputs <- function(
   invisible(outputs)
 }
 
-# Figure S2 ----
+# Figure S3 ----
 
 # Disagreement between validation and exact decisions, by gap and validation
 # size, for the joint criterion, bidirectional transfer, and joint adequacy
 # without transfer.
-figure_s2_data <- function(decision_summary, event_summary) {
+figure_s3_data <- function(decision_summary, event_summary) {
   decision_summary %>%
     filter(method %in% c("raw_joint", "bidirectional_substitution")) %>%
     transmute(
@@ -1145,7 +1145,7 @@ figure_s2_data <- function(decision_summary, event_summary) {
       event_summary %>%
         transmute(
           delta, validation_trials_per_task,
-          panel = "Joint adequacy without transfer",
+          panel = "Joint adequacy without\nbidirectional transfer",
           disagreement_rate = conflation_disagreement_rate,
           disagreement_lo = conflation_disagreement_lo,
           disagreement_hi = conflation_disagreement_hi
@@ -1156,7 +1156,7 @@ figure_s2_data <- function(decision_summary, event_summary) {
         panel,
         levels = c(
           "Joint adequacy", "Bidirectional transfer\nunder substitution",
-          "Joint adequacy without transfer"
+          "Joint adequacy without\nbidirectional transfer"
         )
       ),
       validation_trials_per_task = factor(
@@ -1167,8 +1167,8 @@ figure_s2_data <- function(decision_summary, event_summary) {
     )
 }
 
-make_figure_s2 <- function(decision_summary, event_summary) {
-  plot_data <- figure_s2_data(decision_summary, event_summary)
+make_figure_s3 <- function(decision_summary, event_summary) {
+  plot_data <- figure_s3_data(decision_summary, event_summary)
   validation_colours <- c(blue, orange, green)
   names(validation_colours) <- levels(plot_data$validation_trials_per_task)
   validation_linetypes <- c("solid", "22", "dotdash")
@@ -1217,7 +1217,7 @@ make_figure_s2 <- function(decision_summary, event_summary) {
 
   save_figure(
     plot,
-    file.path(supplement_figure_dir, "figureS2_finite_validation.pdf"),
+    file.path(supplement_figure_dir, "figureS3_finite_validation.pdf"),
     height_mm = 68
   )
 }
@@ -1245,7 +1245,7 @@ run_finite_validation <- function(resimulate = FALSE) {
     )
     check_training_consistency(decision_summary)
   }
-  make_figure_s2(decision_summary, event_summary)
+  make_figure_s3(decision_summary, event_summary)
 }
 
 if (sys.nframe() == 0) {

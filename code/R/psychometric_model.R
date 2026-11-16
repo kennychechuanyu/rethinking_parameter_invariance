@@ -1,5 +1,5 @@
-# Psychometric model shared by Simulations 2A and 2B and the finite-validation
-# analysis: design settings, population calculations, and model fits.
+# Psychometric model shared by Simulations 2A and 2B and the analyses built on
+# them: design settings, population calculations, and model fits.
 #
 # Sourcing this file only defines objects. It draws no random numbers and
 # writes no files.
@@ -382,7 +382,8 @@ fit_joint <- function(kA, kB, m, x_A = X_LEVELS, x_B = X_LEVELS) {
 }
 
 # Substitution: hold the source slope fixed and fit the target location. The
-# default tolerance is optimize()'s default; Simulation 2B passes 1e-10.
+# default tolerance is optimize()'s default; Simulation 2B and the
+# benchmark-correction check pass 1e-10.
 fit_target_location <- function(
     s_fixed, k, m, x = X_LEVELS,
     tolerance = .Machine$double.eps^0.25) {

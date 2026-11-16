@@ -1,7 +1,8 @@
 # Supplementary checks:
-#   - Figure S1 (Supplement S3): the one-quarter calibration applied to the
+#   - Figure S2 (Supplement S3): the one-quarter calibration applied to the
 #     saved Simulation 1 and 2A results;
-#   - Supplement S2: Simulation 1 repeated with three independent estimators;
+#   - Supplement S2: Simulation 1 repeated with three independent estimators,
+#     and bounds that hold for any dependence between the estimators;
 #   - Supplement S5: nuisance compensation on a one-sided stimulus grid.
 #
 #   Rscript --vanilla code/R/supplement_checks.R
@@ -18,9 +19,9 @@ source("code/R/psychometric_model.R")
 
 output_dir <- file.path(results_dir, "supplement_checks")
 
-# Figure S1 ----
+# Figure S2 ----
 
-make_figure_s1 <- function() {
+make_figure_s2 <- function() {
   gaussian <- read_csv(
     file.path(results_dir, "simulation1", "simulation1_curves.csv"),
     show_col_types = FALSE
@@ -69,6 +70,10 @@ make_figure_s1 <- function() {
     ) %>%
     arrange(model, method, delta)
 
+  method_labels <- c(
+    "Joint Adequacy", "Calibrated Joint Adequacy",
+    "Bidirectional Transfer\nUnder Substitution"
+  )
   method_colours <- c(
     "Joint adequacy" = orange,
     "Calibrated joint adequacy" = green,
@@ -99,7 +104,7 @@ make_figure_s1 <- function() {
                      linetype = method)) +
       geom_line(linewidth = 1.05, lineend = "round") +
       scale_colour_manual(values = method_colours, breaks = method_order,
-                          drop = FALSE) +
+                          labels = method_labels, drop = FALSE) +
       scale_linetype_manual(values = method_linetypes, breaks = method_order,
                             drop = FALSE) +
       scale_x_continuous(
@@ -142,7 +147,7 @@ make_figure_s1 <- function() {
     theme(legend.position = "bottom")
 
   save_figure(
-    figure, file.path(supplement_figure_dir, "figureS1_calibration_check.pdf"),
+    figure, file.path(supplement_figure_dir, "figureS2_calibration_check.pdf"),
     height_mm = 78
   )
 }
@@ -180,6 +185,27 @@ run_independent_gaussian_check <- function() {
     )
   })
   write_csv(results, file.path(output_dir, "gaussian_independent.csv"))
+}
+
+# Whatever the dependence between the estimators, the exact pass probabilities
+# of Simulation 1 bound the probability that the joint criterion passes while
+# bidirectional transfer fails: it lies between max(0, P_J - P_S) and
+# min(P_J, 1 - P_S).
+run_dependence_bounds <- function() {
+  curves <- read_csv(
+    file.path(results_dir, "simulation1", "simulation1_curves.csv"),
+    show_col_types = FALSE
+  )
+  bounds <- transmute(
+    curves,
+    delta,
+    joint_pass_probability = P_joint_exact,
+    substitution_pass_probability = P_substitution_exact,
+    conflation_lower = pmax(0, P_joint_exact - P_substitution_exact),
+    conflation_upper = pmin(P_joint_exact, 1 - P_substitution_exact),
+    conflation_width = conflation_upper - conflation_lower
+  )
+  write_csv(bounds, file.path(output_dir, "gaussian_dependence_bounds.csv"))
 }
 
 # Nuisance compensation (Supplement S5) ----
@@ -249,7 +275,8 @@ run_nuisance_policy_check <- function() {
 
 if (sys.nframe() == 0) {
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
-  make_figure_s1()
+  make_figure_s2()
   run_independent_gaussian_check()
+  run_dependence_bounds()
   run_nuisance_policy_check()
 }

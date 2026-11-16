@@ -52,7 +52,11 @@ analysis_scripts <- c(
   simulation1 = "simulation1_gaussian.R",
   simulation2a = "simulation2a_psychometric.R",
   simulation2b = "simulation2b_directional.R",
+  probability_scale = "probability_scale.R",
+  task_design = "task_design.R",
   finite_validation = "finite_validation.R",
+  benchmark_correction = "benchmark_correction.R",
+  misspecified_lapse = "misspecified_lapse.R",
   supplement_checks = "supplement_checks.R"
 )
 analysis_seeds <- c(
@@ -60,6 +64,8 @@ analysis_seeds <- c(
   simulation2a = "20240115",
   simulation2b = "20260823",
   finite_validation = "20260821",
+  benchmark_correction = "20261109",
+  misspecified_lapse = "20261116",
   supplement_checks = "20260824"
 )
 
@@ -87,7 +93,19 @@ deterministic_files <- c(
   "simulation2b/profile_curvature_by_delta.csv",
   "simulation2b/reversed_orientation_boundaries.csv",
   "finite_validation/specification.csv",
-  "supplement_checks/nuisance_policy_boundaries.csv"
+  "misspecified_lapse/detection.csv",
+  "misspecified_lapse/lapse_boundaries.csv",
+  "misspecified_lapse/population_cases.csv",
+  "probability_scale/boundaries.csv",
+  "probability_scale/changes.csv",
+  "probability_scale/scale_comparison.csv",
+  "supplement_checks/gaussian_dependence_bounds.csv",
+  "supplement_checks/nuisance_policy_boundaries.csv",
+  "task_design/designs.csv",
+  "task_design/four_task_joint.csv",
+  "task_design/pairwise_tests.csv",
+  "task_design/task_C_regions.csv",
+  "task_design/task_D_regions.csv"
 )
 
 result_files <- function() {
@@ -242,10 +260,11 @@ resimulate_validation <- any(
   c("--resimulate-validation", "--resimulate-all") %in% args
 )
 
-# Simulation 1 and the supplementary checks take a few seconds and are always
+# The fast analyses take a little over a minute together and are always
 # rerun. Saved results that will not be regenerated are checked first.
 rerun <- c(
-  "simulation1", "supplement_checks",
+  "simulation1", "probability_scale", "task_design", "supplement_checks",
+  "benchmark_correction", "misspecified_lapse",
   if (resimulate_main) c("simulation2a", "simulation2b"),
   if (resimulate_validation) "finite_validation"
 )
@@ -266,14 +285,20 @@ run_script <- function(label, script, resimulate = FALSE) {
 }
 
 run_script("Figures 1 and 2", "conceptual_figures.R")
-run_script("Simulation 1 (Figure 3)", "simulation1_gaussian.R")
-run_script("Simulation 2A (Figure 4)", "simulation2a_psychometric.R",
+run_script("Simulation 1 (Figure S1)", "simulation1_gaussian.R")
+run_script("Simulation 2A (Figure 3)", "simulation2a_psychometric.R",
            resimulate_main)
-run_script("Simulation 2B (Figure 5)", "simulation2b_directional.R",
+run_script("Simulation 2B (Figure 4)", "simulation2b_directional.R",
            resimulate_main)
-run_script("Supplementary checks (Figure S1)", "supplement_checks.R")
-run_script("Finite-validation analysis (Figure S2)", "finite_validation.R",
+run_script("Probability-scale criterion (Supplement S3 and S4)",
+           "probability_scale.R")
+run_script("Task-design example (Figure 5)", "task_design.R")
+run_script("Supplementary checks (Figure S2)", "supplement_checks.R")
+run_script("Finite-validation analysis (Figure S3)", "finite_validation.R",
            resimulate_validation)
+run_script("Benchmark-correction check (Supplement S6.2)",
+           "benchmark_correction.R")
+run_script("Misspecified lapse rates (Supplement S8)", "misspecified_lapse.R")
 
 cat("\n")
 verify_results()

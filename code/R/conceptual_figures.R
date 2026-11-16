@@ -10,8 +10,8 @@ source("code/R/common.R")
 make_figure1 <- function() {
   scenarios <- data.frame(
     panel = factor(
-      c("Bidirectional transfer", "Accommodation only", "Neither"),
-      levels = c("Bidirectional transfer", "Accommodation only", "Neither")
+      c("Bidirectional transfer", "Overlap without transfer", "Neither"),
+      levels = c("Bidirectional transfer", "Overlap without transfer", "Neither")
     ),
     theta_A = c(0.30, 0.30, 0.30),
     theta_B = c(0.40, 0.60, 0.80),

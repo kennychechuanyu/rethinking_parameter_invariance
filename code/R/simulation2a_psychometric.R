@@ -1,4 +1,4 @@
-# Simulation 2A (Figure 4; Supplement S3): psychometric slopes with
+# Simulation 2A (Figure 3; Supplement S3): psychometric slopes with
 # task-specific locations.
 #
 # The focal slope is either shared in a joint fit or carried from one task to
@@ -6,7 +6,7 @@
 # fitted curve is scored by its population excess loss, computed from the
 # known generating probabilities.
 #
-#   Rscript --vanilla code/R/simulation2a_psychometric.R               Figure 4 from saved results
+#   Rscript --vanilla code/R/simulation2a_psychometric.R               Figure 3 from saved results
 #   Rscript --vanilla code/R/simulation2a_psychometric.R --resimulate  rerun the simulation (several minutes)
 #
 # A full run simulates, in this order and from one random-number stream: the
@@ -42,7 +42,7 @@ decision_flags <- function(replication_matrix, eps, n_per_task) {
 
 # Main grid ----
 
-# 2,000 replications at each of the 31 slope gaps (Figure 4).
+# 2,000 replications at each of the 31 slope gaps (Figure 3).
 run_finite_main <- function(nrep = 2000) {
   message("Main grid: ", nrep, " replications at ", length(DELTAS), " gaps")
   out <- vector("list", length(DELTAS))
@@ -204,7 +204,7 @@ run_sensitivity <- function(nrep = 1500,
 
 # 10,000 replications at five gaps around the transfer boundary. Every
 # replication at delta = 0.50 is saved: the model-selection comparison in the
-# paper and the open markers in Figure 4 come from it.
+# paper and the open markers in Figure 3 come from it.
 run_focused_conditions <- function(focus_path, nrep = 10000,
                                    deltas = seq(0.3, 0.7, by = 0.1)) {
   message("Focused conditions: ", nrep, " replications at delta = ",
@@ -914,7 +914,7 @@ simulate_2a <- function(nrep_main = 2000, nrep_sens = 1500,
   )
 }
 
-# Figure 4 ----
+# Figure 3 ----
 
 simulation2a_theme <- function(base = 9) {
   theme_classic(base_size = base, base_family = "Helvetica") +
@@ -936,7 +936,7 @@ simulation2a_theme <- function(base = 9) {
 
 # Pass rates on the main grid, the population band in which joint adequacy
 # holds but transfer fails, and open markers for the focused delta = 0.50 run.
-make_figure4 <- function(input_dir = file.path(results_dir, "simulation2a")) {
+make_figure3 <- function(input_dir = file.path(results_dir, "simulation2a")) {
   cross <- read_csv(file.path(input_dir, "population_results.csv"),
                     show_col_types = FALSE) %>%
     filter(kind == "crossing", abs(eps - EPS_PRIMARY) < 1e-8)
@@ -958,6 +958,8 @@ make_figure4 <- function(input_dir = file.path(results_dir, "simulation2a")) {
     "Bidirectional transfer under substitution" = 17,
     "Joint adequacy without transfer" = 15
   )
+  method_labels <- c("Joint Adequacy", "Bidirectional Transfer",
+                     "Joint Adequacy Without Bidirectional Transfer")
   method_linetypes <- c(
     "Joint adequacy" = "solid",
     "Bidirectional transfer under substitution" = "22",
@@ -999,8 +1001,8 @@ make_figure4 <- function(input_dir = file.path(results_dir, "simulation2a")) {
              ymin = -Inf, ymax = Inf, fill = "grey92") +
     annotate("text",
              x = cross$joint - 0.21, y = 26,
-             label = "Joint adequacy\nwithout transfer",
-             colour = "grey35", size = 2.8) +
+             label = "Joint adequacy without\nbidirectional transfer",
+             colour = "grey35", size = 3.0) +
     geom_line(aes(linetype = method), linewidth = 1.1) +
     geom_point(data = rate_points, aes(shape = method), size = 1.9) +
     geom_point(data = filter(focus_rates, method == "Joint adequacy"),
@@ -1016,10 +1018,10 @@ make_figure4 <- function(input_dir = file.path(results_dir, "simulation2a")) {
       data = focus_annotations,
       aes(x = x, y = y, label = label, colour = method),
       inherit.aes = FALSE,
-      hjust = 0, fontface = "bold", size = 2.8,
+      hjust = 0, fontface = "bold", size = 3.0,
       show.legend = FALSE
     ) +
-    scale_colour_manual(values = method_colours) +
+    scale_colour_manual(values = method_colours, labels = method_labels) +
     scale_shape_manual(values = method_shapes) +
     scale_linetype_manual(values = method_linetypes) +
     scale_x_continuous(
@@ -1034,17 +1036,15 @@ make_figure4 <- function(input_dir = file.path(results_dir, "simulation2a")) {
     ) +
     scale_y_continuous(breaks = c(0, 25, 50, 75, 100), limits = c(-3, 102),
                        expand = c(0, 0)) +
-    labs(title = "Joint adequacy can persist when transfer fails",
-         x = expression("True slope gap " * delta),
+    labs(x = expression("True slope gap " * delta),
          y = "Replications with each outcome (%)",
          colour = NULL, shape = NULL, linetype = NULL) +
     simulation2a_theme(10.5) +
     theme(
-      plot.title = element_text(size = 11.5, face = "bold", margin = margin(b = 4)),
       legend.position = "top",
       legend.justification = "left",
       legend.box.just = "left",
-      legend.key.width = unit(0.62, "cm"),
+      legend.key.width = unit(0.5, "cm"),
       legend.margin = margin(t = 0, b = 1),
       axis.title.x.top = element_text(size = 9.5, margin = margin(b = 3)),
       axis.text.x.top = element_text(size = 8.5),
@@ -1059,13 +1059,13 @@ make_figure4 <- function(input_dir = file.path(results_dir, "simulation2a")) {
                                  linetype = c("solid", "22", "31"))),
            shape = "none", linetype = "none")
 
-  save_figure(figure, file.path(figure_dir, "figure4_psychometric_simulation.pdf"),
+  save_figure(figure, file.path(figure_dir, "figure3_psychometric_simulation.pdf"),
               height_mm = 82)
 }
 
 run_simulation2a <- function(resimulate = FALSE) {
   if (resimulate) simulate_2a()
-  make_figure4()
+  make_figure3()
 }
 
 if (sys.nframe() == 0) {

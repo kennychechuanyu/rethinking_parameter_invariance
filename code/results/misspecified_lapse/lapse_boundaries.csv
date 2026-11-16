@@ -1,0 +1,6 @@
+slope_A,slope_B,boundary,lapse_B
+2,2,bidirectional transfer fails above,0.10209346517867823
+2,2,joint adequacy fails above,0.19239848132725504
+1.7,2.3,bidirectional transfer succeeds from,0.039782661480519954
+1.7,2.3,Task B's pseudo-true slope equals Task A's slope at,0.11214898161543006
+1.7,2.3,bidirectional transfer succeeds up to,0.19851505122230045

@@ -1,4 +1,4 @@
-# Simulation 2B (Figure 5; Supplement S4): directional transfer under unequal
+# Simulation 2B (Figure 4; Supplement S4): directional transfer under unequal
 # task curvature.
 #
 # The model, lapse rate, trial count and tolerance are those of Simulation 2A;
@@ -9,7 +9,7 @@
 # reference curve s = 2, mu = 0 closest to 4 (Supplement S4); transfer results
 # play no part in the choice.
 #
-#   Rscript --vanilla code/R/simulation2b_directional.R               Figure 5 from saved results
+#   Rscript --vanilla code/R/simulation2b_directional.R               Figure 4 from saved results
 #   Rscript --vanilla code/R/simulation2b_directional.R --resimulate  rerun the simulation (about a minute)
 
 source("code/R/common.R")
@@ -205,23 +205,23 @@ summarize_finite <- function(replications) {
     )
 }
 
-# Figure 5 ----
+# Figure 4 ----
 
 # Top: population boundary of each criterion. Bottom: finite-sample pass rates
 # for the two transfer directions. The dashed line marks delta = 0.70.
-make_figure5 <- function(finite, boundary_joint, boundary_A_to_B,
+make_figure4 <- function(finite, boundary_joint, boundary_A_to_B,
                          boundary_B_to_A, example_delta = 0.70,
                          plot_max = 1.30) {
   criterion_colours <- c(
     "Joint adequacy" = orange,
-    "A→B transfer" = blue,
-    "B→A transfer" = "#4D4D4D"
+    "A\u2192B transfer" = blue,
+    "B\u2192A transfer" = "#4D4D4D"
   )
 
   population_limits <- tibble(
     criterion = factor(
-      c("Joint adequacy", "A→B transfer", "B→A transfer"),
-      levels = rev(c("Joint adequacy", "A→B transfer", "B→A transfer"))
+      c("Joint adequacy", "A\u2192B transfer", "B\u2192A transfer"),
+      levels = rev(c("Joint adequacy", "A\u2192B transfer", "B\u2192A transfer"))
     ),
     boundary = c(boundary_joint, boundary_A_to_B, boundary_B_to_A)
   )
@@ -230,14 +230,15 @@ make_figure5 <- function(finite, boundary_joint, boundary_A_to_B,
     filter(delta <= plot_max + 1e-8) %>%
     transmute(
       delta,
-      `A→B transfer` = 100 * A_to_B_pass_rate,
-      `B→A transfer` = 100 * B_to_A_pass_rate
+      A_to_B = 100 * A_to_B_pass_rate,
+      B_to_A = 100 * B_to_A_pass_rate
     ) %>%
     pivot_longer(-delta, names_to = "direction", values_to = "pass_rate") %>%
     mutate(
       direction = factor(
         direction,
-        levels = c("A→B transfer", "B→A transfer")
+        levels = c("A_to_B", "B_to_A"),
+        labels = c("A\u2192B transfer", "B\u2192A transfer")
       )
     )
 
@@ -246,23 +247,23 @@ make_figure5 <- function(finite, boundary_joint, boundary_A_to_B,
 
   focus_annotations <- focus_rates %>%
     mutate(
-      x = delta + if_else(direction == "A→B transfer", -0.035, 0.035),
-      y = if_else(direction == "A→B transfer", 94.5, 25),
-      hjust = if_else(direction == "A→B transfer", 1, 0),
+      x = delta + if_else(direction == "A\u2192B transfer", -0.035, 0.035),
+      y = if_else(direction == "A\u2192B transfer", 94.5, 25),
+      hjust = if_else(direction == "A\u2192B transfer", 1, 0),
       label = sprintf(
         "%s  %.0f%%",
-        if_else(direction == "A→B transfer", "A→B", "B→A"),
+        if_else(direction == "A\u2192B transfer", "A\u2192B", "B\u2192A"),
         pass_rate
       )
     )
 
   baseline_annotation <- direction_rates %>%
-    filter(abs(delta) < 1e-8, direction == "B→A transfer") %>%
+    filter(abs(delta) < 1e-8, direction == "B\u2192A transfer") %>%
     transmute(
       x = 0.035,
       y = 90,
       direction,
-      label = sprintf("%.0f%% at δ = 0", pass_rate)
+      label = sprintf("%.0f%% at \u03b4 = 0", pass_rate)
     )
 
   # The labels assume that delta = 0.70 lies between the B -> A and A -> B
@@ -290,7 +291,7 @@ make_figure5 <- function(finite, boundary_joint, boundary_A_to_B,
     geom_point(aes(x = boundary, colour = criterion), size = 2.6) +
     geom_text(
       aes(
-        x = boundary + 0.035, label = sprintf("%.3f", boundary),
+        x = boundary + 0.035, label = sprintf("%.4g", boundary),
         colour = criterion
       ),
       hjust = 0,
@@ -300,7 +301,7 @@ make_figure5 <- function(finite, boundary_joint, boundary_A_to_B,
       "text",
       x = example_delta + 0.025,
       y = 3.48,
-      label = "δ = 0.70",
+      label = "\u03b4 = 0.70",
       hjust = 0,
       colour = "grey35",
       size = 2.9
@@ -364,8 +365,8 @@ make_figure5 <- function(finite, boundary_joint, boundary_A_to_B,
       size = 2.8,
       show.legend = FALSE
     ) +
-    scale_colour_manual(values = criterion_colours[c("A→B transfer", "B→A transfer")]) +
-    scale_linetype_manual(values = c("A→B transfer" = "solid", "B→A transfer" = "22")) +
+    scale_colour_manual(values = criterion_colours[c("A\u2192B transfer", "B\u2192A transfer")]) +
+    scale_linetype_manual(values = c("A\u2192B transfer" = "solid", "B\u2192A transfer" = "22")) +
     scale_x_continuous(
       breaks = seq(0, 1.2, by = 0.2),
       limits = c(0, plot_max),
@@ -378,7 +379,7 @@ make_figure5 <- function(finite, boundary_joint, boundary_A_to_B,
     ) +
     labs(
       title = "Finite-sample transfer",
-      x = "True slope difference, δ",
+      x = expression("True slope gap " * delta),
       y = "Transfer pass rate (%)",
       colour = NULL,
       linetype = NULL
@@ -393,7 +394,7 @@ make_figure5 <- function(finite, boundary_joint, boundary_A_to_B,
 
   figure <- p_population / p_finite +
     patchwork::plot_layout(heights = c(0.56, 1.12))
-  save_figure(figure, file.path(figure_dir, "figure5_directional_simulation.pdf"),
+  save_figure(figure, file.path(figure_dir, "figure4_directional_simulation.pdf"),
               width_mm = 155, height_mm = 105)
 }
 
@@ -530,7 +531,7 @@ run_simulation2b <- function(resimulate = FALSE) {
     }
   }
 
-  make_figure5(finite, boundary_joint, boundary_A_to_B, boundary_B_to_A)
+  make_figure4(finite, boundary_joint, boundary_A_to_B, boundary_B_to_A)
 }
 
 if (sys.nframe() == 0) {

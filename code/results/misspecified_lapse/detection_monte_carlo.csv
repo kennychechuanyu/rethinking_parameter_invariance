@@ -1,0 +1,3 @@
+case,slope_B,lapse_B,replications,lrt_reject_rate,lrt_reject_wilson_half_width,power_lrt,deviance_reject_rate,deviance_reject_wilson_half_width,power_deviance
+equal slopes,2,0.12,10000,0.3219,0.00915571247705664,0.3348459938403541,0.161,0.007203399779027941,0.15629043577687768
+"unequal slopes, compensating lapse",2.3,0.11214898161543006,10000,0.4677,0.009777660093962892,0.4838892436847033,0.241,0.008381710479332756,0.2329564709171778
