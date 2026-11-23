@@ -104,6 +104,8 @@ deterministic_files <- c(
   "task_design/designs.csv",
   "task_design/four_task_joint.csv",
   "task_design/pairwise_tests.csv",
+  "task_design/self_confirming.csv",
+  "task_design/self_confirming_checks.csv",
   "task_design/task_C_regions.csv",
   "task_design/task_D_regions.csv"
 )

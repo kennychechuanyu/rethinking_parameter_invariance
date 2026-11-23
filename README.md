@@ -1,8 +1,8 @@
-# Rethinking Parameter Invariance in Cognitive Modeling
+# A Priori Prediction and the Logic of Parameter Invariance Tests in Psychology
 
 Code for the paper
 
-> Yu, K., & Robinson, M. M. (2026). *Rethinking parameter invariance in cognitive modeling* [Manuscript submitted for publication]. KU Leuven.
+> Yu, K., & Robinson, M. M. (2026). *A priori prediction and the logic of parameter invariance tests in psychology* [Manuscript submitted for publication]. KU Leuven.
 
 DOI: [10.5281/zenodo.23733805](https://doi.org/10.5281/zenodo.23733805)
 

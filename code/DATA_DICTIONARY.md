@@ -203,14 +203,42 @@ largest change in a predicted response probability, in percentage points.
   fit.
 - `four_task_joint.csv`: the joint fit to Tasks A to D and each task's excess
   loss.
-- `task_D_regions.csv`: Task D's acceptable region for design slopes from 1.5
-  to 2.8 and for the accepted joint slope, under the tolerance (`kl_`) and
+- `task_D_regions.csv`: Task D's acceptable region for design slopes from 1.2
+  to 2.9 and for the accepted joint slope, under the tolerance (`kl_`) and
   under a five-point limit on the change in any predicted probability (`pp_`),
   with the range of probabilities the design realizes (`p_min`, `p_max`).
 - `task_C_regions.csv`: Task C's acceptable region under the tolerance when
   it is designed from the A-B joint slope, as in the example, and when it is
   designed from its own slope, with the range of probabilities each design
   realizes.
+- `self_confirming.csv`: one row per design rule for Task D (generating slope
+  1.75). `rule` names the target probabilities and `levels` their number;
+  the locally optimal rule places two stimuli at the predicted probability
+  that carries the most Fisher information about the slope, and its
+  complement.
+  `kappa` is the derivative of the log curvature of Task D's excess loss at
+  its own slope with respect to the slope used for the design. `own_lower`
+  and `own_upper` bound the acceptable region of a design from Task D's own
+  slope, `self_lower` and `self_upper` the slopes that pass a test designed
+  from them, and `shift` and `first_order_shift` give the shift of that
+  range relative to the region, exactly and as -kappa r^2 / 2.
+- `self_confirming_checks.csv`: quantities quoted in the main text and in
+  Supplement S9, with their units: the excess loss of the B-C joint slope in Task D designed
+  from it and the mean KL between Task D's generating and target
+  probabilities, which are equal; the lowest Task D slope at which the B-C
+  joint slope still passes a test designed from it; and, in units of the
+  tolerance, the losses if Task D's slope were 1.70 (`low_D`): of the B-C
+  joint slope under a design from 1.70, and of Task C's slope under designs
+  from the B-C joint slope and from 1.70. The lowest and highest Task D
+  slopes bound the range over which the B-C joint slope confirms itself.
+  The file also gives the most informative predicted probability, kappa
+  under the locally optimal rule at generating slopes 1.20 and 2.45 and for
+  nine target probabilities spread from .04 to .96, and
+  Task D's acceptable region and self-confirming range under the
+  five-point criterion (`pp_`), and, for Task D designed from the B-C joint
+  slope with the locally optimal rule, the losses of that slope and of Task
+  C's slope in units of the tolerance and the acceptable region
+  (`optimal_rule`).
 
 ## Supplementary checks
 

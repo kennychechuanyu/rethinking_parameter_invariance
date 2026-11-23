@@ -1,7 +1,7 @@
 Package: parameterInvarianceSimulations
 Type: Project
-Title: Reproducibility Code for Rethinking Parameter Invariance in Cognitive Modeling
-Version: 1.2.0
+Title: Reproducibility Code for A Priori Prediction and the Logic of Parameter Invariance Tests in Psychology
+Version: 1.3.0
 Authors@R: c(
     person("Kenny", "Yu", email = "kenny.yu@kuleuven.be",
            role = c("aut", "cre"),
@@ -10,8 +10,8 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-6978-8575"))
     )
 Description: Reproduces the formal examples, simulations, checks, and figures
-    reported in the manuscript "Rethinking Parameter Invariance in Cognitive
-    Modeling."
+    reported in the manuscript "A Priori Prediction and the Logic of Parameter
+    Invariance Tests in Psychology."
 Depends: R (>= 4.5.0)
 Imports:
     digest,

@@ -1,0 +1,20 @@
+quantity,value,unit
+self_test_loss_BC_joint_in_D,0.0037092538907227204,nats per trial
+kl_D_to_target_probabilities,0.0037092538907227235,nats per trial
+lowest_D_slope_BC_joint_confirms_itself,1.5191671264602695,slope
+highest_D_slope_BC_joint_confirms_itself,3.3677233771215063,slope
+BC_joint_in_low_D_designed_from_low_slope,1.065446389996437,tolerance
+C_in_low_D_designed_from_BC_joint,0.7213692832668714,tolerance
+C_in_low_D_designed_from_low_slope,1.2395127902550906,tolerance
+optimal_predicted_probability,0.8956699602606186,probability
+kappa_optimal_rule_slope_1.2,9.5522034726514e-7,per unit slope
+kappa_optimal_rule_slope_2.45,9.332379313775618e-8,per unit slope
+kappa_nine_points_04_to_96,-0.052308900378106316,per unit slope
+pp_own_lower,1.3471611968792216,slope
+pp_own_upper,2.2146896843201964,slope
+pp_self_lower,1.382812238519125,slope
+pp_self_upper,2.2732988502745335,slope
+BC_joint_in_D_optimal_rule,2.7919601792488837,tolerance
+C_in_D_optimal_rule,3.2566543527385345,tolerance
+D_optimal_rule_region_lower,1.4086299233719968,slope
+D_optimal_rule_region_upper,2.1218752398921135,slope
